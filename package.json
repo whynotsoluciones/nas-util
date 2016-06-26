@@ -1,0 +1,39 @@
+{
+  "name": "nas-util",
+  "version": "1.0.0",
+  "description": "Utility module for the NAS Framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/whynotsoluciones/nas-util"
+  },
+  "keywords": [
+    "util",
+    "nas"
+  ],
+  "author": "Why Not Soluciones, S.L. <info+npm@whynotsoluciones.com>",
+  "contributors": [{
+    "name" : "Ezequiel Cuñado",
+    "email" : "ecunado@gmail.com"
+  },{
+    "name" : "Javier Fernandez",
+    "email" : "javier.fdez@gmail.com"
+  }],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/whynotsoluciones/nas-util/issues"
+  },
+  "homepage": "https://github.com/whynotsoluciones/nas-util#readme",
+  "dependencies": {
+    "crypto": "0.0.3"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-datetime": "^1.4.1",
+    "chance": "^1.0.3",
+    "mocha": "^2.5.3"
+  }
+}
