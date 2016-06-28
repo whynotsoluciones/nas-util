@@ -186,3 +186,29 @@ exports.checkEmailDomain = function (email, domain)  {
     }
   }
 };
+
+/**
+ * Replace non-ascii characters in string for equivalent representation in ascii
+ * @param  {[type]} str [description]
+ * @return {[type]}     [description]
+ */
+exports.replaceNonAsciiChars = function (str) {
+  var i;
+  var toReplace = "ÃÀÁÄÂÈÉËÊÌÍÏÎÒÓÖÔÙÚÜÛãàáäâèéëêìíïîòóöôùúüûÑñÇç";
+  var replace = "AAAAAEEEEIIIIOOOOUUUUaaaaaeeeeiiiioooouuuunncc";
+
+  for (i = 0; i < toReplace.length; i++) {
+    str = str.replace(new RegExp(toReplace.charAt(i), 'g'), replace.charAt(i));
+  }
+
+  return str;
+};
+
+/**
+ * Flatten a javascript object to plain json
+ * @param  {[type]} obj [description]
+ * @return {[type]}     [description]
+ */
+exports.flattenObject = function (obj) {
+  return JSON.parse(JSON.stringify(obj));
+};

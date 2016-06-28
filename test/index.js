@@ -195,4 +195,40 @@ describe('nas-util module unit tests', function () {
     });
   });
 
+  describe('replaceNonAsciiChars', function () {
+
+    it('Should replace non-ASCII chars in string', function (done) {
+      expect(util.replaceNonAsciiChars('Emisión de CO2 en conducción mixta')).to.equal('Emision de CO2 en conduccion mixta');
+      done();
+    });
+
+    it('Should replace non-ASCII chars in string', function (done) {
+      expect(util.replaceNonAsciiChars('Año del modelo calculado')).to.equal('Ano del modelo calculado');
+      done();
+    });
+
+    it('Should replace non-ASCII chars in string', function (done) {
+      expect(util.replaceNonAsciiChars('Número de pasajeros')).to.equal('Numero de pasajeros');
+      done();
+    });
+
+  });
+
+  describe('flattenObject', function () {
+
+    it('Flatten a javascript object', function (done) {
+      var obj = {
+        prop1: "prop1",
+        prop2: false,
+        prop3: {
+          prop31: "prop31",
+          prop32: 23
+        }
+      };
+      expect(util.flattenObject(obj)).to.deep.equal(JSON.parse(JSON.stringify(obj)));
+      done();
+    });
+
+  });
+
 });
