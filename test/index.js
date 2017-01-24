@@ -231,4 +231,22 @@ describe('nas-util module unit tests', function () {
 
   });
 
+  describe('leftPadding', function () {
+
+    it('Should fill a number with leading zeros', function (done) {
+      expect(util.leftPadding(22, 10, '0')).to.equal('0000000022');
+      done();
+    });
+
+  });
+
+  describe('rightPadding', function () {
+
+    it('Should fill a number with trailing zeros', function (done) {
+      expect(util.rightPadding(22, 10, '0')).to.equal('2200000000');
+      done();
+    });
+
+  });
+
 });

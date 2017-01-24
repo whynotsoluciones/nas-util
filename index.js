@@ -212,3 +212,41 @@ exports.replaceNonAsciiChars = function (str) {
 exports.flattenObject = function (obj) {
   return JSON.parse(JSON.stringify(obj));
 };
+
+/**
+ * Returns n number with leading chars to complete specified length.
+ * If no char is specified, use '0'
+ * @param  {[type]} obj [description]
+ * @return {[type]}     [description]
+ */
+exports.leftPadding = function (n, length, char) {
+  var leadingChar = (char) ? char : '0';
+  var nS = '' + (n ? n : '');
+  var result = nS;
+  var i;
+
+  for (i = nS.length; i < length; i++) {
+    result = leadingChar + result;
+  }
+
+  return result;
+};
+
+/**
+ * Returns n number with trailing chars to complete specified length.
+ * If no char is specified, use '0'
+ * @param  {[type]} obj [description]
+ * @return {[type]}     [description]
+ */
+exports.rightPadding = function (n, length, char) {
+  var trailingChar = (char) ? char : '0';
+  var nS = '' + (n ? n : '');
+  var result = nS;
+  var i;
+
+  for (i = nS.length; i < length; i++) {
+    result = result + trailingChar;
+  }
+
+  return result;
+};
