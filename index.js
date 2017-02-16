@@ -250,3 +250,28 @@ exports.rightPadding = function (n, length, char) {
 
   return result;
 };
+
+/**
+ * Returns the number of 'units' between two dates
+ * @param  {[type]} unit one of these: 'DAYS', 'HOURS', 'MINUTES', 'SECONDS'
+ * @param  {[type]} d1 first date in time
+ * @param  {[type]} d2 second date in time
+ * @return {[type]}     [description]
+ */
+exports.unitsBetweenDates = function (unit, d1, d2) {
+  // Calculate number of millis per unit
+  var unitMilliseconds = 1000;
+
+  if (unit.toUpperCase() !== 'SECONDS') {
+    unitMilliseconds *= 60;
+    if (unit.toUpperCase() !== 'MINUTES') {
+      unitMilliseconds *= 60;
+      if (unit.toUpperCase() !== 'HOURS') {
+        unitMilliseconds *= 24;
+      }
+    }
+  }
+
+  return Math.round(Math.abs((d1.getTime() - d2.getTime()) / unitMilliseconds));
+
+};

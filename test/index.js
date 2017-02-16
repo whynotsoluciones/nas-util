@@ -249,4 +249,36 @@ describe('nas-util module unit tests', function () {
 
   });
 
+  describe('unitsBetweenDates', function () {
+
+    it('Should return 20 days between two dates', function (done) {
+      var d1 = new Date("2017-01-09T11:00:00.000Z");
+      var d2 = new Date("2017-01-29T12:00:00.000Z");
+      expect(util.unitsBetweenDates('days', d1, d2)).to.equal(20);
+      done();
+    });
+
+    it('Should return 49 hours between two dates', function (done) {
+      var d1 = new Date("2017-01-09T11:00:00.000Z");
+      var d2 = new Date("2017-01-11T12:00:00.000Z");
+      expect(util.unitsBetweenDates('HOURS', d1, d2)).to.equal(49);
+      done();
+    });
+
+    it('Should return 366 days between two dates (leapyear)', function (done) {
+      var d1 = new Date("2016-01-19T11:00:00.000Z");
+      var d2 = new Date("2017-01-19T12:00:00.000Z");
+      expect(util.unitsBetweenDates('DAYS', d1, d2)).to.equal(366);
+      done();
+    });
+
+    it('Should return 213 minutes between two dates (leapyear)', function (done) {
+      var d1 = new Date("2016-01-19T11:00:00.000Z");
+      var d2 = new Date("2016-01-19T14:33:00.000Z");
+      expect(util.unitsBetweenDates('minutes', d1, d2)).to.equal(213);
+      done();
+    });
+
+  });
+
 });
