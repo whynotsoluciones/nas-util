@@ -281,4 +281,12 @@ describe('nas-util module unit tests', function () {
 
   });
 
+  describe('randomString', function () {
+    it('Should generate a random string', function (done) {
+      var str = util.randomString(10);
+      expect(str).to.have.lengthOf(10);
+      done();
+    });
+  });
+
 });

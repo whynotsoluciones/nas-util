@@ -275,3 +275,21 @@ exports.unitsBetweenDates = function (unit, d1, d2) {
   return Math.round(Math.abs((d1.getTime() - d2.getTime()) / unitMilliseconds));
 
 };
+
+/**
+ * Generates random string
+ * @param  {[type]} length length returned string should be
+ * @return {[type]} random string
+ */
+exports.randomString = function (length) {
+  var chars = "abcdefghijklmnopqrstuwxyz0123456789";
+  var rnd = crypto.randomBytes(length),
+    value = new Array(length),
+    len = chars.length;
+
+  for (var i = 0; i < length; i++) {
+    value[i] = chars[rnd[i] % len]
+  };
+
+  return value.join('');
+};
