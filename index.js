@@ -64,7 +64,7 @@ exports.hasher = function (opts, callback) {
   else {
     opts.hash = 'sha1';
     opts.iterations = opts.iterations || 10000;
-    crypto.pbkdf2(opts.plainText, opts.salt, opts.iterations, 64, function (err, key) {
+    crypto.pbkdf2(opts.plainText, opts.salt, opts.iterations, 64, opts.hash function (err, key) {
       if (err) {
         callback(err);
       } else {
