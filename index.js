@@ -18,6 +18,7 @@ var crypto = require('crypto');
  */
 exports.sendResponse = function (req, res, status, obj) {
   if (!req.timedout) {
+    res.set('Cache-Control', 'no-cache');
     if (obj !== undefined) {
       res.status((status) ? status : 200).jsonp(obj);
     } else {
